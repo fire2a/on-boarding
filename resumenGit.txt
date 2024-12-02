@@ -1,0 +1,14 @@
+git clone copia el repositorio en mi computador
+cd cambia de directorio
+git pull obtiene los cambios del repositorio y hace merge con 
+el contenido local
+git fetch obtiene los cambios del repo
+git switch [-c] crea una rama nueva a partir de main y se cambia a esa
+git add agrega el archivo al staging
+git commit ingresa los cambios que están en el staging al repo, 
+con un mensaje explicativo
+git push actualiza las referencias remotas con todos los cambios commiteados
+abre una pestaña de firefox con la comparación de ambas ramas, si hay cambios
+se puede crear el pr desde ahi
+
+
