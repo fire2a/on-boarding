@@ -13,10 +13,10 @@ cd C2F-W
 git pull
 # B
 git fetch 
-git switch [-c] my-feature-branch [main]
+git switch [-c] branch-name-is-at-least-a-half-sentence-explaining-the-feature/issue [main]
 
 git add new_or_changed_text_file
-git commit -m "sentence that explains the purpose of the changes"
+git commit -m "sentence that explains the purpose of the change"
 
 git push [--set-upstream origin my-feature-branch]
 
@@ -24,12 +24,25 @@ git push [--set-upstream origin my-feature-branch]
 firefox https://github.com/fire2a/C2F-W/compare/main...my-feature-branch
 ```
 
+### A learning path
+
+1. (what is git again?) watch any video introduction
+2. (novice) [Get started with GitHub documentation](https://docs.github.com/en/get-started/)
+3. _(do once)_ [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+4. __(essential, must be understood)__ [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+5. [official docs](https://git-scm.com/doc): really good cheat sheets and official manual
+
 ### [optional] follow the rabbit hole
 - [recommended] diff files between branches, commits, etc.
 - merge: branches, 2-3 way
 - cherry pick
 
-## github organization
+## coding practices 0
+- the best code/document is not the smartest one, but the most legible
+- write/name everything as for your future self, when you'd forgotten about it & context
+- avoid typing errors by typing as little as possible vs copy/paste
+  
+## our github organization
 1. Every team member has write as default privileges. Be respectful of other people branches
 2. When creating a new public repo (can't be done with private), create a protection rule for the main branch:
    - requiring pull requests
