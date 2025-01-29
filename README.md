@@ -41,6 +41,7 @@ firefox https://github.com/fire2a/C2F-W/compare/main...my-feature-branch
 - the best code/document is not the smartest one, but the most legible
 - write/name everything as for your future self, when you'd forgotten about it & context
 - avoid typing errors by typing as little as possible vs copy/paste
+- avoid using unclear variable names, acronyms are usually unclear
   
 ## our github organization
 1. Every team member has write as default privileges. Be respectful of other people branches
@@ -48,3 +49,4 @@ firefox https://github.com/fire2a/C2F-W/compare/main...my-feature-branch
    - requiring pull requests
    - disallowing push
    <img src="https://github.com/user-attachments/assets/573f21f8-b666-4164-9baa-9bc511051c0b"  alt='cannot load image' width="400px" >
+3. When opening a pull request, link it to the corresponding issue and explain your code's expected result
