@@ -38,8 +38,7 @@ git remote -v
 3. _(do once)_ [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 4. __(essential, must be understood)__ [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
 5. [official docs](https://git-scm.com/doc): really good cheat sheets and official manual
-6. Learn how your IDE implements git (example: [VSCode](https://code.visualstudio.com/docs/sourcecontrol/overview), [Unix is my IDE](https://blog.sanctum.geek.nz/series/unix-as-ide/)), interactive and/or visual diffs.
-
+6. Learn how your IDE implements git (example: [VSCode](https://code.visualstudio.com/docs/sourcecontrol/overview) or [Unix is my IDE](https://blog.sanctum.geek.nz/series/unix-as-ide/)); to do interactive and/or visual diffs.
    
 #### further research
 - setup `.gitconfig`
@@ -48,6 +47,7 @@ git remote -v
 - `cherry-pick`
 - `git remote set-url origin git@...`
 - never `git reset ...`
+- search all code (all branches) `git grep -e 'your_search_string' $(git rev-list --all)`
 
 ### coding practices 0
 - the best code/document is not the smartest one, but the most legible
