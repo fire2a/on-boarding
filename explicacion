@@ -1,0 +1,17 @@
+```bash
+git clone git@github.com:fire2a/C2F-W.git # clona el repositorio de manera local
+cd C2F-W # comando que accede a la carpeta C2F-W
+
+# alternative A
+git pull # git pull actualiza los cambios que hay en una rama a nivel remoto y los incorpora al trabajo local
+# B
+git fetch # git fetch consigue los cambios de una rama a nivel remoto y los trae al local, se tiene que hacer git merge despues para que se incorporen al trabajo local.
+git switch [-c] my-feature-branch [main] # genera una nueva rama para trabajar, o se usa para cambiar a otra rama en el mismo repositorio.
+
+git add new_or_changed_text_file #agrega los cambios hechos a nivel local a la rama a nivel local
+git commit -m "sentence that explains the purpose of the changes" # saca una "foto" del estado de la rama, y lleva una explicacion
+
+git push [--set-upstream origin my-feature-branch] # envia los cambios hechos a nivel local a la rama en el repositorio remoto
+
+# B pull request
+firefox https://github.com/fire2a/C2F-W/compare/main...my-feature-branch # genera una solicitud para incorporar la rama al main, en el repositorio remoto, debe ser revisada y aceptada previamente.
