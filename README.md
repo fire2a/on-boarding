@@ -42,7 +42,8 @@ git remote -v
    
 #### further research
 - setup `.gitconfig`
-- `diff`; between branches, commits, tags...
+- view differences: `diff` between branches, commits, tags...
+- search into the whole tree `git log --grep <regex> [branches]`
 - `merge`; branches, 2-3 way
 - `cherry-pick`
 - `git remote set-url origin git@...`
