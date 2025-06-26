@@ -1,7 +1,11 @@
 # fire2a-on-boarding
 
+- Required ![git](#git)
+- Intro to ![command line interfaces](#intro-to-command-line-interfaces)
+- Intro to ![containers](#containers)
+
 ## git
-<img src="https://imgs.xkcd.com/comics/git_2x.png"  alt='cannot load image' width="500px" >
+<img src="https://imgs.xkcd.com/comics/git.png"  alt='cannot load image' width="400px" >
 
 ### main usage
 ```bash
@@ -62,6 +66,81 @@ git remote -v
    - disallowing push
    <img src="https://github.com/user-attachments/assets/573f21f8-b666-4164-9baa-9bc511051c0b"  alt='cannot load image' width="400px" >
 
-## Intro to cli
+## Intro to command line interfaces
 - https://blog.sanctum.geek.nz/series/unix-as-ide/
 - https://www.geeksforgeeks.org/linux-tutorial/
+
+## containers
+<img src="https://imgs.xkcd.com/comics/containers.png"  alt='cannot load image' width="400px" >
+- How to get (administration) power without the responsability (of destroying everyones work/dependencies)?
+- How to make truly portable code, without having to manage dependencies?
+
+Basic learning path:
+1. Create a fairly empty container, develop inside (fail and start over) until you get a list of working dependencies. Share the configuration with fire2a admin to make available at OS level.
+2. Containerized developement allows you to divide responsabilities over services and take advantage of ready to use solutions
+
+### Shortest tutorial
+#### TL;DR
+```bash
+cd containers # wherever a Containerfile is located
+podman build -t my_debian_image . # BUILD here
+podman run -d -v $(pwd)/compartido:/root/. --name my_debian_container my_debian_image # START DETACHED (-D) CONTAINER, sharing $pwd/compartido folder (no symlink)
+podman exec -it my_debian_container bash # CONNECT INTERACTIVELY
+
+root@...$ apt install ... # now you can be root
+```
+#### tutorial
+- `podman` is newer, free and doesn't require admin privileges like `docker`
+- in every code that calls _ you can replace with _, and it will mostly work:
+   - `docker` to `podman`
+   - `Dockerfile` to `Containerfile`
+   - `docker-compose` to `podman-compose`
+```bash
+#
+# IMAGES
+#
+podman images # list my images
+podman pull debian:stable # DOWNLOAD (OR UPDATE) A BASE IMAGE
+
+# most popular image site: https://hub.docker.com/search/
+# sometimes you got to put the full path, examples
+podman pull docker.io/library/pandoc/latex:latest
+podman pull docker.io/3liz/qgis-map-server
+
+podman rmi <repository or id> # remove image
+# images being used in containers cannot be removed
+# periodically remove unused images, the can take a lot of space
+
+#
+# CONTAINERS
+#
+podman build -t my_debian_image -f Containerfile # BUILD 
+# specifying name and context:
+# -t --tag name to apply to the built image
+# -f --file pathname or URL of a Dockerfile (can be skipped and ./Containerfile is used)
+
+podman run -d --name my_debian_container my_debian_image # START DETACHED (-D) CONTAINER 
+# from my_debian_image, name it my_debian_container
+
+podman ps -a # lists -a(all) running containers
+podman start/stop/rm <container id or name> # start stop or remove container
+
+podman exec -it my_debian_container bash # CONNECT INTERACTIVELY
+
+# SHARING FILES
+
+# 1. copy file from and to a running container
+podman cp README.md my_debian_container:/root/.
+# same syntax as scp, doesn't support recursive (-r) or glob (*)
+
+# 2. mount at start
+podman run -v $(pwd)/compartido:/root/. -d --name my_debian_container my_debian_image
+
+# 3. if volume doesn't exist it get's created
+podman run -v my_volume:/root/. -d --name my_debian_container2 my_debian_image
+podman volume ls # list volumes
+podman volume inspect <volume name or id> # check properties
+ls $(podman volume inspect my_volume --format "{{.Mountpoint}}") # check contents (read only or container crashes)
+podman volume rm <volume name or id>
+```
+

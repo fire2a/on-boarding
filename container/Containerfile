@@ -1,0 +1,34 @@
+FROM debian:stable
+
+# no gui
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update Install 
+RUN apt-get update && \
+    apt-get install -y \
+	bash-completion \
+	build-essential \
+	clang-format \
+	cmake \
+	curl \
+	git \
+	jq \
+	libboost-all-dev \
+	libtiff-dev \
+	vim-tiny \
+	wget \
+	xclip \
+        default-jdk \
+        libabsl-dev \
+        libfontconfig1-dev \
+        libgdal-dev \
+        libssl-dev \
+        libudunits2-dev \
+        r-base* \
+        r-doc* \
+        r-recommended \
+        r-cran-stringr \
+ 	r-cran-ggplot2 \
+	r-cran-raster
+
+CMD ["tail", "-f", "/dev/null"]
