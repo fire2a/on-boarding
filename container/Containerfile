@@ -11,24 +11,37 @@ RUN apt-get update && \
 	clang-format \
 	cmake \
 	curl \
+	default-jdk \
 	git \
 	jq \
+	libabsl-dev \
 	libboost-all-dev \
+	libfftw3-dev \
+	libfontconfig1-dev \
+	libfreetype6-dev \
+	libgdal-dev \
+	libgeos++-dev \
+	libgl1-mesa-dev \
+	libglu1-mesa-dev \
+	libproj-dev \
+	libssl-dev \
 	libtiff-dev \
+	libudunits2-dev \
+	libx11-dev \
+	libxt-dev \
+	r-base* \
+	r-cran-raster \
+	r-cran-stringr \
+	r-doc* \
+	r-recommended \
 	vim-tiny \
 	wget \
 	xclip \
-        default-jdk \
-        libabsl-dev \
-        libfontconfig1-dev \
-        libgdal-dev \
-        libssl-dev \
-        libudunits2-dev \
-        r-base* \
-        r-doc* \
-        r-recommended \
-        r-cran-stringr \
- 	r-cran-ggplot2 \
-	r-cran-raster
+ 	r-cran-ggplot2
+
+RUN R -e "install.packages(c('remotes','Rcpp','raster','h2o','tidyverse','caret'))" && \
+	R -e "remotes::install_github('rspatial/terra')" && \
+    R -e "remotes::install_github('rspatial/sf')" && \
+	R -e "install.packages(c('lidR','leafR','stringr','ggplot2','LadderFuelsR'))"
 
 CMD ["tail", "-f", "/dev/null"]
