@@ -1,0 +1,19 @@
+Resumen On-boarding
+
+git clone git@github.com:fire2a/C2F-W.git : clona el repositorio de github en el computador local 
+
+cd C2F-W : cambia la ruta, para acceder a la carpeta C2F-W
+
+git pull : obtiene los cambios del repositorio remoto, fusionándolo con el local
+
+git fetch : obtiene los cambios del repositorio remoto
+
+git switch [-c] my-feature-branch [main]: cambia la rama (y crea, en este caso) desde la rama "main" hacia "my-feature-branch"
+
+git add new_or_changed_text_file : agrega un archivo del repositorio local a "la fila de actualizaciones", por así decirlo
+
+git commit -m "sentence that explains the purpose of the changes" : realiza los cambios (add's) al repositorio, permite dejar un mensaje para informar qué se está haciendo (-m)
+
+git push [--set-upstream origin my-feature-branch] : manda los cambios (commits) hacia el repositorio remoto
+
+firefox https://github.com/fire2a/C2F-W/compare/main...my-feature-branch : solicita revisar y aprobar los cambios hechos (en la rama personal y repositorio local) hacia la rama principal
