@@ -1,8 +1,8 @@
 # fire2a-on-boarding
 
-- Required ![git](#git)
-- Intro to ![command line interfaces](#intro-to-command-line-interfaces)
-- Intro to ![containers](#containers)
+- Required [git](#git)
+- Intro to [command line interfaces](#intro-to-command-line-interfaces)
+- Intro to [containers](#containers)
 
 ## git
 <img src="https://imgs.xkcd.com/comics/git.png"  alt='cannot load image' width="400px" >
@@ -72,6 +72,7 @@ git remote -v
 
 ## containers
 <img src="https://imgs.xkcd.com/comics/containers.png"  alt='cannot load image' width="400px" >
+
 - How to get (administration) power without the responsability (of destroying everyones work/dependencies)?
 - How to make truly portable code, without having to manage dependencies?
 
